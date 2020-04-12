@@ -3,7 +3,7 @@ if exists('g:loaded_bundle_vimtex')
   finish
 endif
 " -------------------------------------------------------------------------- }}}
-" {{{ vimtex
+" {{{ vimtex | https://github.v:lervag/vimtex
 let g:tex_flavor = 'latex'
 
 let g:vimtex_fold_enabled = 1
@@ -69,4 +69,11 @@ else
         \ ],
         \}
 endif
+" -------------------------------------------------------------------------- }}}
+" {{{ Vim Completes Me | https://github.com/ajh17/VimCompletesMe/
+augroup VimCompletesMeTex 
+  autocmd!
+  autocmd FileType tex
+      \ let b:vcm_omni_pattern = g:vimtex#re#neocomplete
+augroup END
 " -------------------------------------------------------------------------- }}}
