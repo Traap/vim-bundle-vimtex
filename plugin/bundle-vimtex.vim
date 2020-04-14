@@ -2,6 +2,7 @@
 if exists('g:loaded_bundle_vimtex')
   finish
 endif
+let g:loaded_bundle_vimtex=1
 " -------------------------------------------------------------------------- }}}
 " {{{ vimtex | https://github.v:lervag/vimtex
 let g:tex_flavor = 'latex'
