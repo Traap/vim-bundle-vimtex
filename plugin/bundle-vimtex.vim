@@ -1,4 +1,4 @@
-" {{{ bundle-vimtex.vim 
+" {{{ bundle-vimtex.vim
 if exists('g:loaded_bundle_vimtex')
   finish
 endif
@@ -7,8 +7,8 @@ let g:loaded_bundle_vimtex=1
 " {{{ vimtex | https://github.v:lervag/vimtex
 let g:tex_flavor = 'latex'
 
-let g:vimtex_fold_enabled = 1
-let g:vimtex_fold_manual = 0
+let g:vimtex_fold_enabled = 0
+let g:vimtex_fold_manual = 1
 
 let g:vimtex_format_enabled = 1
 
@@ -40,7 +40,7 @@ if has("win32unix")
   let g:vimtex_compiler_latexmk = {
         \ 'backend' : 'jobs',
         \ 'background' : 0,
-        \ 'build_dir' : '_build',
+        \ 'b:uild_dir' : '_build',
         \ 'executable' : 'latexmk',
         \ 'callback' : 1,
         \ 'continuous' : 0,
@@ -53,8 +53,13 @@ if has("win32unix")
         \ ],
         \}
 else
-  " let g:vimtex_view_general_viewer = 'zathura'
-  let g:vimtex_view_general_viewer = 'okular'
+  " Stryder is Ubuntu running in Windows Subsystem for Linux (WSL2)
+  let g:vimtex_hostname=hostname()
+  if g:vimtex_hostname == "Stryder"
+    let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+  else
+    let g:vimtex_view_general_viewer = 'okular'
+  endif
   let g:vimtex_compiler_latexmk = {
         \ 'background' : 0,
         \ 'build_dir' : '_build',
@@ -72,7 +77,7 @@ else
 endif
 " -------------------------------------------------------------------------- }}}
 " {{{ Vim Completes Me | https://github.com/ajh17/VimCompletesMe/
-augroup VimCompletesMeTex 
+augroup VimCompletesMeTex
   autocmd!
   autocmd FileType tex
       \ let b:vcm_omni_pattern = g:vimtex#re#neocomplete
