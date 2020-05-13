@@ -4,6 +4,26 @@ if exists('g:loaded_bundle_vimtex')
 endif
 let g:loaded_bundle_vimtex=1
 " -------------------------------------------------------------------------- }}}
+" {{{ Are we running WSL (windows Sybsystem for Linux)
+"
+" uname prints system information.  The information below was captured while
+" running Ubuntu 18.04 from WSL2.
+"
+" uname        : Linux:
+"     kernel -s: Linux:
+"      node  -n: USLKZ6QQ6WT2:
+"   release  -r: 4.4.0-18362-Microsoft:
+"   version  -v: #476-Microsoft Fri Nov 01 16:53:00 PST 2019:
+"   machine  -m: x86_64:
+" processor  -p: x86_64:
+"  hardware  -i: x86_64:
+"        OS  -o: GNU/Linux:
+let g:os_wsl =
+  \ matchstr(
+  \   substitute(system('uname -r'), '\n', '', ''),
+  \     'Microsoft' == 'Microsoft')
+
+" -------------------------------------------------------------------------- }}}
 " {{{ vimtex | https://github.v:lervag/vimtex
 let g:tex_flavor = 'latex'
 
@@ -55,7 +75,7 @@ if has("win32unix")
 else
   " Stryder is Ubuntu running in Windows Subsystem for Linux (WSL2)
   let g:vimtex_hostname=hostname()
-  if g:vimtex_hostname == "Stryder"
+  if g:os_wsl
     let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
   else
     let g:vimtex_view_general_viewer = 'okular'
