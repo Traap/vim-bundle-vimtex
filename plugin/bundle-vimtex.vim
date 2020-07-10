@@ -18,7 +18,7 @@ let g:loaded_bundle_vimtex=1
 " processor  -p: x86_64:
 "  hardware  -i: x86_64:
 "        OS  -o: GNU/Linux:
-let g:os_wsl = (substitute(system('uname -r'), '\n', '', '') == 'Microsoft')
+let g:os_wsl = (substitute(system('uname -r'), '\n', '', '') =~ 'Microsoft')
 
 " -------------------------------------------------------------------------- }}}
 " {{{ vimtex | https://github.v:lervag/vimtex
