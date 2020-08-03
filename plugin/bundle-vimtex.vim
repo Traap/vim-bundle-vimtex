@@ -22,7 +22,6 @@ let g:os_wsl = (substitute(system('uname -r'), '\n', '', '') =~ 'Microsoft')
 
 " -------------------------------------------------------------------------- }}}
 " {{{ vimtex | https://github.v:lervag/vimtex
-let g:tex_flavor = 'latex'
 
 let g:vimtex_fold_enabled = 0
 let g:vimtex_fold_manual = 1
@@ -31,8 +30,6 @@ let g:vimtex_format_enabled = 1
 
 let g:vimtex_complete_enabled = 1
 let g:vimtex_complete_close_braces = 1
-
-let g:vimtex_latexmk_enabled = 1
 
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_view_enabled = 1
