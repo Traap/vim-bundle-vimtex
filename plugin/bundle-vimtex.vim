@@ -34,13 +34,13 @@ let g:vimtex_complete_close_braces = 1
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_view_enabled = 1
 
-let g:vimtex_quickfix_filters = {
+let g:vimtex_quickfix_ignore_filters = [
       \ 'empty glossary',
       \ 'font warning',
       \ 'overfull',
       \ 'specifier change to',
       \ 'underfull',
-      \ }
+      \ ]
 
 if has('nvim')
   let g:vimtex_compiler_progname="nvr"
