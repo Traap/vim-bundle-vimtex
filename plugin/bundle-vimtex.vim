@@ -37,9 +37,9 @@ let g:vimtex_view_enabled = 1
 let g:vimtex_quickfix_ignore_filters = [
       \ 'empty glossary',
       \ 'font warning',
-      \ 'overfull',
+      \ 'Overfull',
       \ 'specifier change to',
-      \ 'underfull',
+      \ 'Underfull',
       \ ]
 
 if has('nvim')
