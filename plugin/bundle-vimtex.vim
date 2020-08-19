@@ -34,15 +34,12 @@ let g:vimtex_complete_close_braces = 1
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_view_enabled = 1
 
-let g:vimtex_quickfix_latexlog = {
-      \ 'empty glossary' : 0,
-      \ 'font warning' : 0,
-      \ 'overfull' : 0,
-      \ 'specifier change to' : 0,
-      \ 'underfull' : 0,
-      \ 'packages' : {
-      \   'tocloft' : 0,
-      \  },
+let g:vimtex_quickfix_filters = {
+      \ 'empty glossary',
+      \ 'font warning',
+      \ 'overfull',
+      \ 'specifier change to',
+      \ 'underfull',
       \ }
 
 if has('nvim')
