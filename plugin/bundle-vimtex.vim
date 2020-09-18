@@ -51,9 +51,9 @@ if has("win32unix")
   let g:vimtex_compiler_latexmk = {
         \ 'backend' : 'jobs',
         \ 'background' : 0,
-        \ 'b:uild_dir' : '_build',
+        \ 'build_dir' : '_build',
         \ 'executable' : 'latexmk',
-        \ 'callback' : 1,
+        \ 'callback' : 0,
         \ 'continuous' : 0,
         \ 'options' : [
         \   '-pdf',
@@ -64,14 +64,14 @@ if has("win32unix")
         \ ],
         \}
 else
-  " Stryder is Ubuntu running in Windows Subsystem for Linux (WSL2)
-  let g:vimtex_hostname=hostname()
+  " Windows Subsystem for Linux (WSL2) check.
   if g:os_wsl
     let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
   else
     let g:vimtex_view_general_viewer = 'okular'
   endif
   let g:vimtex_compiler_latexmk = {
+        \ 'backend' : 'jobs',
         \ 'background' : 0,
         \ 'build_dir' : '_build',
         \ 'executable' : 'latexmk',
