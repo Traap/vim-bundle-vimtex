@@ -68,7 +68,8 @@ else
   if g:os_wsl
     let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
   else
-    let g:vimtex_view_general_viewer = 'okular'
+    let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+    "let g:vimtex_view_general_viewer = 'okular'
   endif
   let g:vimtex_compiler_latexmk = {
         \ 'backend' : 'jobs',
