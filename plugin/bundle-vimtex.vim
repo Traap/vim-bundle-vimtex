@@ -46,8 +46,18 @@ if has('nvim')
   let g:vimtex_compiler_progname="nvr"
 endif
 
+
 if has("win32unix")
   let g:vimtex_view_general_viewer = 'SumatraPDF'
+elseif has('unix')
+  let g:vimtex_view_general_viewer = 'okular'
+elseif g:os_wsl
+  let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+else
+  let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+endif
+
+if has("win32unix")
   let g:vimtex_compiler_latexmk = {
         \ 'backend' : 'jobs',
         \ 'background' : 0,
@@ -64,13 +74,6 @@ if has("win32unix")
         \ ],
         \}
 else
-  " Windows Subsystem for Linux (WSL2) check.
-  if g:os_wsl
-    let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
-  else
-    let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
-    "let g:vimtex_view_general_viewer = 'okular'
-  endif
   let g:vimtex_compiler_latexmk = {
         \ 'backend' : 'jobs',
         \ 'background' : 0,
