@@ -4,23 +4,6 @@ if exists('g:loaded_bundle_vimtex')
 endif
 let g:loaded_bundle_vimtex=1
 " -------------------------------------------------------------------------- }}}
-" {{{ Are we running WSL (windows Sybsystem for Linux)
-"
-" uname prints system information.  The information below was captured while
-" running Ubuntu 18.04 from WSL2.
-"
-" uname        : Linux:
-"     kernel -s: Linux:
-"      node  -n: USLKZ6QQ6WT2:
-"   release  -r: 4.4.0-18362-Microsoft:
-"   version  -v: #476-Microsoft Fri Nov 01 16:53:00 PST 2019:
-"   machine  -m: x86_64:
-" processor  -p: x86_64:
-"  hardware  -i: x86_64:
-"        OS  -o: GNU/Linux:
-let g:os_wsl = (substitute(system('uname -r'), '\n', '', '') =~ 'Microsoft')
-
-" -------------------------------------------------------------------------- }}}
 " {{{ vimtex | https://github.v:lervag/vimtex
 
 let g:vimtex_fold_enabled = 0
