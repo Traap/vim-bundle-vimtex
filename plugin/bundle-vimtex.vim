@@ -26,7 +26,7 @@ let g:vimtex_quickfix_ignore_filters = [
       \ ]
 
 if has('nvim')
-  let g:vimtex_compiler_progname="nvr"
+  let g:vimtex_compiler_progname="nrv"
 endif
 
 
