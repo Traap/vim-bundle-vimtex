@@ -34,8 +34,10 @@ if has("win32unix")
   let g:vimtex_view_general_viewer = 'SumatraPDF'
 elseif g:os_wsl
   let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+  " let g:vimtex_view_general_viewer = 'okular.exe'
 elseif has('unix')
-  let g:vimtex_view_general_viewer = 'okular'
+  let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+  " let g:vimtex_view_general_viewer = 'okular.exe'
 else
   let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
 endif
