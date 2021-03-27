@@ -32,7 +32,7 @@ endif
 
 if has("win32unix")
   let g:vimtex_view_general_viewer = 'SumatraPDF'
-elseif g:os_wsl || has("windows")
+elseif g:os_wsl || has('win32') || has('win64')
   let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
 elseif has('unix')
   let g:vimtex_view_general_viewer = 'okular'
