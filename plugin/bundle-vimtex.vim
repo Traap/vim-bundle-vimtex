@@ -29,10 +29,9 @@ if has('nvim')
   let g:vimtex_compiler_progname="nrv"
 endif
 
-
 if has("win32unix")
   let g:vimtex_view_general_viewer = 'SumatraPDF'
-elseif g:os_wsl || has('win32') || has('win64')
+elseif g:os_wsl 
   let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
 elseif has('unix')
   let g:vimtex_view_general_viewer = 'okular'
