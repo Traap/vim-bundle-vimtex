@@ -6,12 +6,18 @@ endif
 let g:loaded_bundle_vimtex=1
 
 " -------------------------------------------------------------------------- }}}
-" {{{ Archlinux and Windows Subsystem for Linux check 
+" {{{ Archlinux and Windows Subsystem for Linux check
 
 let g:os_arch = trim(system("cat /etc/issue | rg 'Arch Linux' -c"))
 let g:os_wsl  = (substitute(system('uname -r'), '\n', '', '') =~ 'Microsoft') ||
-              \ (substitute(system('uname -r'), '\n', '', '') =~ 'WSL2') 
-             
+              \ (substitute(system('uname -r'), '\n', '', '') =~ 'WSL2')
+
+if g:os_wsl
+  let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+else
+  let g:vimtex_view_general_viewer = 'okular'
+endif
+
 " -------------------------------------------------------------------------- }}}
 " {{{ vimtex | https://github.v:lervag/vimtex
 
@@ -38,19 +44,12 @@ if has('nvim')
   let g:vimtex_compiler_progname="nrv"
 endif
 
-if g:os_wsl
-  let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
-else
-  let g:vimtex_view_general_viewer = 'okular'
-endif
-
 let g:vimtex_compiler_latexmk = {
-      \ 'backend' : 'jobs',
-      \ 'background' : 0,
-      \ 'build_dir' : '_build',
-      \ 'executable' : 'latexmk',
+      \ 'build_dir' : '',
       \ 'callback' : 1,
       \ 'continuous' : 1,
+      \ 'executable' : 'latexmk',
+      \ 'hooks' : [],
       \ 'options' : [
       \   '-pdf',
       \   '-verbose',
