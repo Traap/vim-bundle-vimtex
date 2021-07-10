@@ -9,8 +9,9 @@ let g:loaded_bundle_vimtex=1
 " {{{ Archlinux and Windows Subsystem for Linux check
 
 let g:os_arch = trim(system("cat /etc/issue | rg 'Arch Linux' -c"))
-let g:os_wsl  = (substitute(system('uname -r'), '\n', '', '') =~ 'Microsoft') ||
-              \ (substitute(system('uname -r'), '\n', '', '') =~ 'WSL2')
+
+let s:os_wsl = trim(system('uname -r'))
+let g:os_wsl  = (s:os_wsl =~ 'Microsoft') || (s:os_wsl =~ 'WSL2')
 
 if g:os_wsl
   let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
