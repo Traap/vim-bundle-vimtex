@@ -8,14 +8,14 @@ let g:loaded_bundle_vimtex=1
 " -------------------------------------------------------------------------- }}}
 " {{{ Windows Subsystem for Linux check
 
-if has("wsl") || has("win32unix")
+if !empty(getenv('WSL_DISTRO_NAME')) || has("win32unix")
   let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
 else
   let g:vimtex_view_general_viewer = 'okular'
 endif
 
 " -------------------------------------------------------------------------- }}}
-" {{{ vimtex | https://github.v:lervag/vimtex
+" {{{ vimtex | https://github.com/lervag/vimtex
 
 let g:vimtex_fold_enabled = 0
 let g:vimtex_fold_manual = 1
