@@ -9,10 +9,10 @@ let g:loaded_bundle_vimtex=1
 " {{{ Use environment variable PDF_VIEWER regarless of OS.
 
 let s:pdf_viewer = getenv('PDF_VIEWER')
-if !empty(s:pdf_viewer)
+if s:pdf_viewer != v:null && !empty(s:pdf_viewer)
   let g:vimtex_view_general_viewer = s:pdf_viewer
 else
-  echo "Warning: PDF_VIEWER is not defined."
+  echo "Warning: (vimtex) PDF_VIEWER is not defined."
 endif
 
 " -------------------------------------------------------------------------- }}}
